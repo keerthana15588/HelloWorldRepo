@@ -1,0 +1,28 @@
+Install Docker on EC2 Instance Connect EC2 instance using SSH(putty) 
+yum install docker –y 
+service docker start usermod -a -G docker ec2-user 
+Verify DockerInstallation: docker –version
+: Configure AWS CLI on EC2 Instance Install AWS CLI 
+If AWS CLI is not already installed, install it:
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_6 4.zip" -o "awscliv2.zip" unzip awscliv2.zip
+ sudo ./aws/install
+AWS Access Key ID: 
+AWS Secret Access Key: 
+Default region name: ap-south-1
+ Default output format:  json
+Verify CLI Access Verify ifAWS CLI is correctly configured by running: aws sts get-caller-identity
+Create and Push Docker Image to ECR Create a Dockerfile Create a directory and navigate into it: mkdir my-docker-app my-docker-app 
+Create a Dockerfile :
+nano Dockerfile 
+FROM python:3.8-slim
+WORKDIR /app COPY app 
+Dockerfile .py /app
+CMD ["python", "app.py"] 
+Press cntl+x and press y
+and enter Create a simple Python app(app.py): 
+nano app.py 
+Print(“hello from docker”) 
+Press cntl+x and press y and enter
+Build the Docker Image :docker build -t my-docker-app
+Create an ECR Repository Go to the ECR dashboard on AWS Console and create a repository: Go to Services > Elastic Container Registry > Repositories > CreateRepository
+. Name the repository . Authenticate Docker to ECR Click on created registry and click on view push commands 
