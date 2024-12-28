@@ -1,0 +1,20 @@
+git -v
+sudo yum install git -y
+git -v
+mkdir user
+cd user
+git init
+git config- -global user.name “username”
+git config- -global email.name email@.com
+git config- -list
+vi file
+git add file
+git status
+git commit –m “message"
+git status  
+git remote add origin 
+git push –u origin master
+git add file
+git commit –m “central file"
+vi file
+ 
