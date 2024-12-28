@@ -4,14 +4,18 @@ service docker start usermod -a -G docker ec2-user
 Verify DockerInstallation: docker –version
 : Configure AWS CLI on EC2 Instance Install AWS CLI 
 If AWS CLI is not already installed, install it:
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_6 4.zip" -o "awscliv2.zip" unzip awscliv2.zip
- sudo ./aws/install
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws configure
 AWS Access Key ID: 
 AWS Secret Access Key: 
 Default region name: ap-south-1
  Default output format:  json
 Verify CLI Access Verify ifAWS CLI is correctly configured by running: aws sts get-caller-identity
-Create and Push Docker Image to ECR Create a Dockerfile Create a directory and navigate into it: mkdir my-docker-app my-docker-app 
+Create and Push Docker Image to ECR Create a Dockerfile Create a directory and navigate into it: mkdir my-docker-app 
+cd my-docker-app
+nano Dockerfile
 Create a Dockerfile :
 nano Dockerfile 
 FROM python:3.8-slim
