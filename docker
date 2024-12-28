@@ -1,0 +1,6 @@
+sudo yum install 
+systemctl start docker -y
+docker pull hello-world
+docker run hello-world
+docker images 
+docker ps -a
